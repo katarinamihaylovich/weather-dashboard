@@ -20,11 +20,19 @@
     <main class="container-fluid">
         <div class="row">
             <section class="col-3">
-                <div class="card custom-card">
+                <!-- <form class="card custom-card">
                     <h3 class="card-header">Search for a City:</h3>
                     <div class="card-body">
                         <input type="text" id="city-input" class="form-control" placeholder="San Diego"/>
-                        <button type="submit" id="searchBtn" class="btn btn-primary btn-block">Search</button>
+                    </div> -->
+
+                    <div class="card">
+                        <h3 class="card-header">Search For a City</h3>
+                        <form id="user-form" class="card-body">
+                          <!-- <label class="form-label" for="username"></label> -->
+                          <input name="username" id="username" type="text" autofocus="true" class="form-input form-control" placeholder="San Diego" />
+                          <button type="submit" class="btn btn-primary btn-block" id="searchBtn">Submit</button>
+                        </form>
                     </div>
                 <!-- This space actually needs to be search history buttons -->
                 <!-- <ul class="list-group list-group-flush">
@@ -32,16 +40,20 @@
                         <button type="button" class="btn btn-secondary btn-block">Los Angeles</button>
                     </li>
                 </ul> -->
-                </div>
+                </form>
             </section>
 
             <section class="col-8">
                 <div class="card custom-card">
-                    <div>Placeholder text</div>
+                    <h3 id="cityName" id="date"></h3>
+                    <p id="temp"></p>
+                    <p id="wind"></p>
+                    <p id="humidity"></p>
                 </div>
             </section>
         </div>    
     </main>
-    
+
+    <script src="./assets/script.js"></script> 
 </body>
 </html>
