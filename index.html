@@ -20,27 +20,19 @@
     <main class="container-fluid">
         <div class="row">
             <section class="col-3">
-                <!-- <form class="card custom-card">
-                    <h3 class="card-header">Search for a City:</h3>
-                    <div class="card-body">
-                        <input type="text" id="city-input" class="form-control" placeholder="San Diego"/>
-                    </div> -->
 
                     <div class="card">
                         <h3 class="card-header">Search For a City</h3>
                         <form id="user-form" class="card-body">
                           <!-- <label class="form-label" for="username"></label> -->
-                          <input name="username" id="username" type="text" autofocus="true" class="form-input form-control" placeholder="San Diego" />
+                          <input name id="userCity" type="text" autofocus="true" class="form-input form-control" placeholder="San Diego" />
                           <button type="submit" class="btn btn-primary btn-block" id="searchBtn">Submit</button>
                         </form>
                     </div>
-                <!-- This space actually needs to be search history buttons -->
-                <!-- <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <button type="button" class="btn btn-secondary btn-block">Los Angeles</button>
-                    </li>
-                </ul> -->
-                </form>
+                    <div class="card">
+                        <h3 class="card-header">History <span id="previousSearch"></span></h3>
+                        <div id="cities-container" class="list-group"></div>
+                      </div>
             </section>
 
             <section class="col-8">

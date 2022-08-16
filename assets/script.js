@@ -7,21 +7,23 @@
 // var cityFormEl = document.getElementById("searchBtn");
 
 var userFormEl = document.querySelector('#user-form');
-var nameInputEl = document.querySelector('#username');
+var nameInputEl = document.querySelector('#userCity');
 var humidityEl = document.getElementById("humidity");
 var tempEl = document.getElementById("temp");
 var windEl = document.getElementById("wind");
 var cityNameEl = document.getElementById("cityName");
+var previousSearch = document.getElementById("previous-search");
+var containerEl = document.getElementById("cities-container");
+// var citiesHistory = JSON.parse(localStorage.getItem("history"));
 
 var formSubmitHandler = function (event) {
     event.preventDefault();
   
-    var username = nameInputEl.value.trim();
+    var nameOfCity = nameInputEl.value.trim();
   
-    if (username) {
-      getWeather(username);
+    if (nameOfCity) {
+      getWeather(nameOfCity);
   
-      repoContainerEl.textContent = '';
       nameInputEl.value = '';
     } else {
       alert('Please enter a valid city name');
@@ -44,7 +46,6 @@ var getWeather = function (cityName) {
             tempEl.textContent = "Temp: " + data.main.temp + "°F";
             windEl.textContent = "Wind: " + data.wind.speed + "MPH";
             cityNameEl.textContent = data.name;
-            // displayRepos(data, user);
           });
         } else {
           alert('Error: ' + response.statusText);
@@ -53,8 +54,43 @@ var getWeather = function (cityName) {
       .catch(function (error) {
         alert('Unable to connect');
       });
+
+}
+userFormEl.addEventListener('submit', formSubmitHandler);
+
+
+localStorage.setItem("history", nameInputEl.value);
+
+
+// var displaySearches = function (localStorage, previousCity) {
+//     if (localStorage.length === 0) {
+//         containerEl.textContent = " ";
+//         return;
+//     }
+
+//     previousSearch.textContent = previousCity;
+
+//     localStorage.setItem("City", nameInputEl.value)
+
+//     console.log(localStorage)
+
+//     for (var i = 0; i < localStorage.length; i++) {
+//         containerEl.textContent = localStorage.getItem(localStorage.city[i]);
+//     }
+// }
+
+// use localStorage.setItem("Searchistory," JSON. stringify(searchHistory)
+
+function renderSearchHistory(){
+    containerEl.innerHTML = "";
+    for (var i = 0; i < citiesHistory.length; i++){
+        var searchList = document.createElement("button");
+        searchList.setAttribute("id", "search-list");
+        searchList.textContent = citiesHistory(i);
+        containerEl.append(searchList);
+    }
 }
 
 
-userFormEl.addEventListener('submit', formSubmitHandler);
 
+// var search hisotry list = json.parse get item
